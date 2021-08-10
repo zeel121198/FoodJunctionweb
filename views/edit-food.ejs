@@ -1,0 +1,23 @@
+<% include partials/header.ejs %>
+
+<h1 style="margin-top: 2%; font-size: 1cm; margin-left: 40%;">Update food details</h1>
+
+<form method="post" style="margin-top: 2%; font-size: 0.5cm; margin-left: 35%;">
+	<div class="form-group">
+		<label for="food" class="col-sm-2 control-label">Food Item*:</label>
+		<input name="food" id="food" required value="<%= food.food %>" />
+	</div>
+	<div class="form-group">
+		<label for="servings" class="col-sm-2 control-label">Taste:</label>
+		<input name="servings" id="servings" value="<%= food.servings %>" />
+	</div>
+	<div class="form-group">
+		<label for="cuisine" class="col-sm-2 control-label">Cuisine:</label>
+		<input name="cuisine" id="cuisine" value="<%= food.cuisine %>"/>
+	</div>
+	<div class="form-group" style="margin-left: 20%;">
+		<button class="myButton" >Save</button>
+	</div>
+</form>
+
+<% include partials/footer.ejs %>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="description" content="Zeel"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script rel="stylesheet" href='/public/demo.js'> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+        
+        
+</head>
+
+  <body>
+    <nav class="navbar navbar-default" style="background-color: black;">
+  
+        <div class="container">
+  
+            <div class="navbar-header" style="margin-left: 30%">
+  
+                <a class="navbar-brand" href="/">Food Junction</a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" type="button" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style="background-color: black;">
+            <ul class="nav navbar-nav">  
+            <% if (!user) { %>
+                <li><a href="/login">Login</a></li>
+                
+                <li><a href="/register">Register</a></li>
+        
+            <% }
+            else { %>
+
+                <li><a href="/food">Food log</a></li>
+                <li><a href="/food/add">Add Item</a></li>
+                <li><a href="/logout">Logout</a></li>
+            
+                <% } %>
+            </ul>
+            <% if (user) { %>
+                <div class="navbar-text pull-right">You are in</div>
+            <% } %>
+        </div>
+    </nav>

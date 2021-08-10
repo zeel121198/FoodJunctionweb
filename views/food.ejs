@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+<div class="container-fluid" style="color:black;">
+
+<h1 style="margin-top: 0%; font-size: 1cm;margin-left: 45%;" ><%= title %></h1>
+
+<table class="table table-striped">
+
+  <tr>
+  <th>Food item</th>
+  <th>Cuisine</th>
+  <th>Taste</th>
+  <th>Best Before to eat</th>
+  <th>Edit</th>
+  <th>Delete</th>
+  </tr>
+
+  <% for (var i=0; i < food.length; i++) { %>
+
+	<% if (food[i].userID == user.username) { %>
+		<tr>
+			<td><%= food[i].food %></td>
+		
+			<td><%= food[i].cuisine %></td>
+      <td><%= food[i].servings %></td>
+      <td><%= food[i].addedDate %></td>
+			<td><a href="/food/edit/<%= food[i]._id %>" class="myButton" style="font-size: 0.3cm;">Edit</a></td>
+			<td><a href="/food/delete/<%= food[i]._id %>" class="myButton" style="font-size: 0.3cm;">Delete</a></td>
+		</tr>
+
+  	<% } %>
+  <% } %>
+</table>
+
+<br>
+<br>
+<% if (user) { %><a href="/food/add" style="margin-top: 0%; font-size: 0.5cm;margin-left: 40%; color: darkgreen;" class="myButton">Add Another Item Click Here</a><% } %>
+</div>
+<% include partials/footer.ejs %>

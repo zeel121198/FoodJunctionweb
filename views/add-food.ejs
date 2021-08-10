@@ -1,0 +1,27 @@
+<% include partials/header.ejs %>
+
+<h3 style="margin-top: 2%; font-size: 1cm; margin-left: 40%;">Add a food item in Food log</h3>
+
+<form method="post" style="margin-top: 2%; font-size: 0.5cm; margin-left: 35%;">
+	<div class="form-group">
+		<label for="food" class="col-sm-2 control-label">Food Item*:</label>
+		<input name="food" id="food" required />
+	</div>
+	
+	<div class="form-group">
+		<label for="cuisine" class="col-sm-2 control-label">Cuisine:</label>
+		<input name="cuisine" id="cuisine" />
+	</div>
+	<div class="form-group">
+		<label for="servings" class="col-sm-2 control-label">Taste:</label>
+		<input name="servings" id="servings" />
+	</div>
+	
+	<div class="form-group">
+		<label for="addedDate" class="col-sm-2 control-label">Best Before to eat:</label>
+		<input name="addedDate" id="addedDate" type="date" required />
+	</div>
+	<button class="myButton">Submit</button>
+</form>
+
+<% include partials/footer.ejs %>
