@@ -1,12 +1,8 @@
 
 var express = require('express');
 var router = express.Router();
-
-// link to Accout model
 var Account = require('../models/account');
 var passport = require('passport');
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'FOOD JUNCTION',
@@ -14,7 +10,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-/* GET register page */
 router.get('/register', function(req, res, next) {
   res.render('register', {
     title: 'Register',
@@ -22,7 +17,6 @@ router.get('/register', function(req, res, next) {
   });
 });
 
-/* POST register page */
 router.post('/register', function(req, res, next) {
   
   Account.register(new Account ({ username: req.body.username }),
@@ -36,34 +30,21 @@ router.post('/register', function(req, res, next) {
       }
     });
 });
-
-/* GET login page */
 router.get('/login', function(req, res, next) {
-
-  // get session messages if there are any
   var messages = req.session.messages || [];
-  // clear the messages out
   req.session.messages = null;
-
   res.render('login', {
     title: 'Login',
     messages: messages,
     user: req.user
   });
 });
-
-/* POST login page */
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/food', //update this when content created
+  successRedirect: '/food', 
   failureRedirect: '/login',
-  failureMessage: 'Invalid Login' // stored in session.messages
+  failureMessage: 'Invalid Login' 
 }));
-
-/* GET logout */
 router.get('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/login');
-});
-
-
-module.exports = router;
+}); module.exports = router;
